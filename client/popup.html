@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrustScreen</title>
+  <style>
+    :root {
+      --primary-color: #4a6cf7;
+      --primary-hover: #3a5bd0;
+      --success-color: #28a745;
+      --warning-color: #ffc107;
+      --danger-color: #dc3545;
+      --info-color: #17a2b8;
+      --light-bg: #f8f9fa;
+      --dark-text: #212529;
+      --border-color: #dee2e6;
+      --radius: 8px;
+      --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      width: 550px;
+      min-height: 400px; 
+      padding: 20px;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: white;
+      color: var(--dark-text);
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+      font-size: 1.4em;
+    }
+
+    p {
+      margin: 0.5rem 0;
+      line-height: 1.5;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px; 
+      margin-bottom: 20px; 
+      border: none;
+      border-radius: var(--radius);
+      background-color: var(--primary-color);
+      color: white;
+      font-size: 15px; 
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+      box-shadow: var(--shadow);
+    }
+
+    button:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    #status {
+      font-size: 1.2em;
+      color: #6c757d;
+      margin-top: 5px;
+      margin-bottom: 20px; 
+      padding: 12px; 
+      background-color: var(--light-bg);
+      border-radius: var(--radius);
+      border-left: 4px solid var(--primary-color);
+    }
+
+
+    #result-container {
+      display: none;
+      margin-top: 20px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+      background-color: white;
+    }
+
+    #result-header {
+      background-color: #e9ecef;
+      padding: 15px;
+      font-size: 1.2em; 
+      font-weight: 600;
+      color: var(--dark-text);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 12px; 
+    }
+
+    .verdict-icon {
+      font-size: 1.4em; 
+    }
+
+    .verdict-safe { color: var(--success-color); }
+    .verdict-phishing { color: var(--danger-color); }
+    .verdict-suspicious { color: var(--warning-color); }
+    .verdict-info { color: var(--info-color); }
+
+    #result-content {
+      padding: 20px; 
+    }
+
+    .result-row {
+      margin-bottom: 15px; 
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .result-label {
+      font-weight: 600;
+      min-width: 120px; 
+      color: #495057;
+    }
+
+    p, .result-label, .result-value {
+    font-size: 1.1em; 
+    }
+    .result-value {
+      flex-grow: 1;
+      word-break: break-word;
+    }
+
+    .score-bar-container {
+      width: 100%;
+      background-color: #e9ecef;
+      border-radius: 4px;
+      height: 16px; 
+      margin: 15px 0; 
+      overflow: hidden;
+      
+    }
+
+    .score-bar {
+      height: 100%;
+      background-color: var(--success-color);
+      transition: width 0.5s ease-in-out;
+    }
+
+    .score-bar-phishing {
+      background-color: var(--danger-color);
+    }
+
+    .score-bar-suspicious {
+      background-color: var(--warning-color);
+    }
+
+    .reasons-list {
+      list-style-type: '• ';
+      padding-left: 25px; 
+    }
+
+    .reasons-list li {
+      margin-bottom: 8px;
+    }
+
+  </style>
+</head>
+<body>
+  <button id="check">Check Current Tab</button>
+  <div id="status">Waiting for data...</div>
+  <div id="result-container">
+    <div id="result-header">
+      <span id="verdict-icon" class="verdict-icon">📊</span>
+      <span id="verdict-text">Analysis Result</span>
+    </div>
+    <div id="result-content">
+    </div>
+  </div>
+  <pre id="debug-out" style="display:none;"></pre>
+  <script src="popup.js"></script>
+</body>
+</html>

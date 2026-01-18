@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHISHING WEBSITE BLOCKED</title>
+  <style>
+    :root {
+      --primary-danger: #e74c3c;
+      --primary-danger-dark: #c0392b;
+      --bg-light: #fff5f5;
+      --text-dark: #2c3e50;
+      --text-light: #ecf0f1;
+      --card-bg: white;
+      --border-color: #ffcccc;
+      --radius: 12px;
+      --shadow-heavy: 0 10px 30px rgba(231, 76, 60, 0.2);
+      --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-main);
+      padding: 40px 20px;
+      margin: 0;
+      background: linear-gradient(135deg, var(--bg-light), #ffffff);
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    .warning-card {
+      background-color: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-heavy);
+      padding: 30px;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      border: 2px solid var(--border-color);
+      box-sizing: border-box;
+    }
+
+    h1 {
+      color: var(--primary-danger);
+      margin-top: 0;
+      font-size: 2.2em;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    h1::before {
+      content: "⚠";
+      font-size: 1.8em;
+    }
+
+    .url-container {
+      background-color: #fef9e7;
+      padding: 15px;
+      border-radius: var(--radius);
+      margin: 20px 0;
+      word-break: break-all;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      border: 1px dashed #f39c12;
+    }
+
+    .url-label {
+      font-weight: bold;
+      color: #7d3c98;
+      margin-right: 5px;
+    }
+
+    .reasons-section h3 {
+      color: var(--text-dark);
+      margin-top: 25px;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .reasons-section h3::before {
+      content: "🔍";
+    }
+
+    .reasons-list {
+      list-style-type: none;
+      padding: 0;
+      text-align: left;
+      max-height: 200px;
+      overflow-y: auto;
+      margin: 0 auto;
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: var(--radius);
+      border: 1px solid #e9ecef;
+    }
+
+    .reasons-list li {
+      padding: 10px;
+      margin: 8px 0;
+      background-color: white;
+      border-radius: 6px;
+      border-left: 4px solid var(--primary-danger);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .close-btn {
+      margin-top: 30px;
+      padding: 14px 30px;
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      background-color: var(--primary-danger);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    }
+
+    .close-btn:hover {
+      background-color: var(--primary-danger-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+    }
+
+    .close-btn:active {
+      transform: translateY(0);
+    }
+
+    .icon {
+      font-size: 1.5em;
+      vertical-align: middle;
+    }
+
+    .footer-note {
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #7f8c8d;
+      text-align: center;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="warning-card">
+    <h1>PHISHING WEBSITE DETECTED</h1>
+    <div class="url-container">
+      <span class="url-label">URL:</span>
+      <span id="url"></span>
+    </div>
+    <div class="reasons-section">
+      <h3>Why Blocked</h3>
+      <ul id="reasons-list" class="reasons-list">
+      </ul>
+    </div>
+    <button class="close-btn" onclick="window.close()">
+      <span class="icon">关门</span> Close Tab
+    </button>
+    <div class="footer-note">
+      Your security is our priority. This page has been blocked automatically.
+    </div>
+  </div>
+  <script src="warning.js"></script>
+</body>
+</html>
