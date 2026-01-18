@@ -17,7 +17,7 @@ git clone https://github.com/DeltaFromX/TrustScreen.git
                                                     
 или `Code → Download ZIP` и распакуйте архив
 Распакуйте архив в любую удобную папку на компьютере.
-               
+             \n\n  
 После распаковки структура папки должна выглядеть так:
 ```bash
 your-extension/   
