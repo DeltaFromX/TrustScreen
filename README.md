@@ -20,7 +20,7 @@ git clone https://github.com/DeltaFromX/TrustScreen.git
              
 После распаковки структура папки должна выглядеть так:
 ```bash
-your-extension/   
+client/   
 ├── instructions.html   
 ├── manifest.json   
 ├── popup.html   
