@@ -1,4 +1,4 @@
-# 🛡 TrustScreen — Anti-Phishing Browser Extension + API
+# 🛡 TrustScreen — Anti-Phishing Browser Extension
 
 
 
