@@ -1,5 +1,6 @@
 # 🛡 TrustScreen — Anti-Phishing Browser Extension
-           
+![Python](https://img.shields.io/badge/Python-3.12%2B-blue?style=for-the-badge&logo=python)
+
 > [!IMPORTANT]
 >
 > **TrustScreen** — это система защиты от фишинга, состоящая из браузерного расширения и backend-API.  
