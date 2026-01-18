@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "TrustScreen",
+  "version": "1.1",
+  "description": "TrustScreen - phishing shield",
+  "permissions": [
+    "tabs",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<api_url>*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<api_url>"
+      ],
+      "js": ["content.js"],
+      "all_frames": true
+    }
+  ]
+}
